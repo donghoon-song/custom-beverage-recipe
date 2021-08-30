@@ -9,12 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_mobx: ^2.0.2
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  mobx_codegen: ^2.0.2
+  build_runner:
 flutter:
   uses-material-design: true
 
