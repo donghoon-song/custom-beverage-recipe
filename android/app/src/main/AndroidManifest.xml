@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kr.comento.cubere">
+    package="kr.dongee.cubere">
    <application
         android:label="cubere"
         android:icon="@mipmap/ic_launcher">

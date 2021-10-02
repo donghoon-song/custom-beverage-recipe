@@ -1,4 +1,4 @@
-package kr.comento.cubere
+package kr.dongee.cubere
 
 import io.flutter.embedding.android.FlutterActivity
 
