@@ -4,22 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'beverage_list.dart';
 
-class HomePage extends ConsumerStatefulWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends ConsumerState<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    ref.read(beverageListStateProvider.notifier).getBeverageList();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final beverageListState = ref.watch(beverageListStateProvider);
     return Scaffold(
       appBar: AppBar(

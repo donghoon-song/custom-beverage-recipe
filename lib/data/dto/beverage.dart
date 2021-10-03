@@ -5,7 +5,10 @@ part 'beverage.g.dart';
 
 @freezed
 class Beverage with _$Beverage {
-  factory Beverage({required String name}) = _Beverage;
+  factory Beverage({
+    required String id,
+    required String name,
+  }) = _Beverage;
 
   factory Beverage.fromJson(Map<String, dynamic> json) =>
       _$BeverageFromJson(json);

@@ -13,19 +13,23 @@ class BeverageListStateNotifier extends StateNotifier<BeverageListState> {
 
   BeverageListStateNotifier(ProviderRefBase ref)
       : _beverageRepository = ref.read(beverageRepositoryProvider),
-        super(const BeverageListState.initial());
+        super(const BeverageListState.initial()) {
+    listenRealtimeBeverageList();
+  }
 
-  void getBeverageList() async {
+  listenRealtimeBeverageList() {
     state = const BeverageListState.loading();
-    final leftOrRight = await _beverageRepository.fetchBeverageList();
-    state = leftOrRight.fold(
-      (l) => BeverageListState.error(
+    final leftOrRight = _beverageRepository.fetchRealtimeBeverageList();
+    leftOrRight.fold(
+      (l) => state = BeverageListState.error(
         l.when(
           invalidRequest: () => '잘못된 요청입니다.',
           serverError: () => '서버 오류입니다.',
         ),
       ),
-      (r) => BeverageListState.loaded(r),
+      (r) => r.listen((beverageList) {
+        state = BeverageListState.loaded(beverageList);
+      }),
     );
   }
 }

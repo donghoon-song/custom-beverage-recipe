@@ -21,8 +21,9 @@ Beverage _$BeverageFromJson(Map<String, dynamic> json) {
 class _$BeverageTearOff {
   const _$BeverageTearOff();
 
-  _Beverage call({required String name}) {
+  _Beverage call({required String id, required String name}) {
     return _Beverage(
+      id: id,
       name: name,
     );
   }
@@ -37,6 +38,7 @@ const $Beverage = _$BeverageTearOff();
 
 /// @nodoc
 mixin _$Beverage {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +51,7 @@ mixin _$Beverage {
 abstract class $BeverageCopyWith<$Res> {
   factory $BeverageCopyWith(Beverage value, $Res Function(Beverage) then) =
       _$BeverageCopyWithImpl<$Res>;
-  $Res call({String name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -62,9 +64,14 @@ class _$BeverageCopyWithImpl<$Res> implements $BeverageCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -78,7 +85,7 @@ abstract class _$BeverageCopyWith<$Res> implements $BeverageCopyWith<$Res> {
   factory _$BeverageCopyWith(_Beverage value, $Res Function(_Beverage) then) =
       __$BeverageCopyWithImpl<$Res>;
   @override
-  $Res call({String name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -92,9 +99,14 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
   }) {
     return _then(_Beverage(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -106,30 +118,36 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Beverage implements _Beverage {
-  _$_Beverage({required this.name});
+  _$_Beverage({required this.id, required this.name});
 
   factory _$_Beverage.fromJson(Map<String, dynamic> json) =>
       _$$_BeverageFromJson(json);
 
   @override
+  final String id;
+  @override
   final String name;
 
   @override
   String toString() {
-    return 'Beverage(name: $name)';
+    return 'Beverage(id: $id, name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Beverage &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(name);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(name);
 
   @JsonKey(ignore: true)
   @override
@@ -143,10 +161,12 @@ class _$_Beverage implements _Beverage {
 }
 
 abstract class _Beverage implements Beverage {
-  factory _Beverage({required String name}) = _$_Beverage;
+  factory _Beverage({required String id, required String name}) = _$_Beverage;
 
   factory _Beverage.fromJson(Map<String, dynamic> json) = _$_Beverage.fromJson;
 
+  @override
+  String get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
