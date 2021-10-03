@@ -21,10 +21,16 @@ Beverage _$BeverageFromJson(Map<String, dynamic> json) {
 class _$BeverageTearOff {
   const _$BeverageTearOff();
 
-  _Beverage call({required String id, required String name}) {
+  _Beverage call(
+      {required String id,
+      required String name,
+      @TimestampConverter()
+      @JsonKey(name: 'created_at')
+          required DateTime createdAt}) {
     return _Beverage(
       id: id,
       name: name,
+      createdAt: createdAt,
     );
   }
 
@@ -40,6 +46,9 @@ const $Beverage = _$BeverageTearOff();
 mixin _$Beverage {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  @TimestampConverter()
+  @JsonKey(name: 'created_at')
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +60,10 @@ mixin _$Beverage {
 abstract class $BeverageCopyWith<$Res> {
   factory $BeverageCopyWith(Beverage value, $Res Function(Beverage) then) =
       _$BeverageCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+  $Res call(
+      {String id,
+      String name,
+      @TimestampConverter() @JsonKey(name: 'created_at') DateTime createdAt});
 }
 
 /// @nodoc
@@ -66,6 +78,7 @@ class _$BeverageCopyWithImpl<$Res> implements $BeverageCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -76,6 +89,10 @@ class _$BeverageCopyWithImpl<$Res> implements $BeverageCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -85,7 +102,10 @@ abstract class _$BeverageCopyWith<$Res> implements $BeverageCopyWith<$Res> {
   factory _$BeverageCopyWith(_Beverage value, $Res Function(_Beverage) then) =
       __$BeverageCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name});
+  $Res call(
+      {String id,
+      String name,
+      @TimestampConverter() @JsonKey(name: 'created_at') DateTime createdAt});
 }
 
 /// @nodoc
@@ -101,6 +121,7 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_Beverage(
       id: id == freezed
@@ -111,6 +132,10 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -118,7 +143,12 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Beverage implements _Beverage {
-  _$_Beverage({required this.id, required this.name});
+  _$_Beverage(
+      {required this.id,
+      required this.name,
+      @TimestampConverter()
+      @JsonKey(name: 'created_at')
+          required this.createdAt});
 
   factory _$_Beverage.fromJson(Map<String, dynamic> json) =>
       _$$_BeverageFromJson(json);
@@ -127,10 +157,14 @@ class _$_Beverage implements _Beverage {
   final String id;
   @override
   final String name;
+  @override
+  @TimestampConverter()
+  @JsonKey(name: 'created_at')
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'Beverage(id: $id, name: $name)';
+    return 'Beverage(id: $id, name: $name, createdAt: $createdAt)';
   }
 
   @override
@@ -140,14 +174,18 @@ class _$_Beverage implements _Beverage {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.createdAt, createdAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.createdAt, createdAt)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +199,12 @@ class _$_Beverage implements _Beverage {
 }
 
 abstract class _Beverage implements Beverage {
-  factory _Beverage({required String id, required String name}) = _$_Beverage;
+  factory _Beverage(
+      {required String id,
+      required String name,
+      @TimestampConverter()
+      @JsonKey(name: 'created_at')
+          required DateTime createdAt}) = _$_Beverage;
 
   factory _Beverage.fromJson(Map<String, dynamic> json) = _$_Beverage.fromJson;
 
@@ -169,6 +212,10 @@ abstract class _Beverage implements Beverage {
   String get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
+  @override
+  @TimestampConverter()
+  @JsonKey(name: 'created_at')
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BeverageCopyWith<_Beverage> get copyWith =>

@@ -9,13 +9,13 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final beverageListState = ref.watch(beverageListStateProvider);
+    final beverageList = ref.watch(beverageListProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
       ),
       body: Center(
-        child: beverageListState.maybeWhen(
+        child: beverageList.maybeWhen(
           loaded: (list) => BeverageList(list: list),
           error: (message) => Text(message),
           orElse: () => const CircularProgressIndicator(),

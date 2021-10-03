@@ -17,6 +17,7 @@ class BeverageList extends StatelessWidget {
         for (Beverage item in list)
           ListTile(
             title: Text(item.name),
+            subtitle: Text(item.createdAt.toString()),
           ),
       ],
     );

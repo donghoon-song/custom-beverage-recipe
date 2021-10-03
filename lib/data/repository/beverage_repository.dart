@@ -13,16 +13,11 @@ class BeverageRepository {
   BeverageRepository(ProviderRefBase ref)
       : _beverageClient = ref.read(beverageClientProvider);
 
-  Either<LoadFailure, Stream<List<Beverage>>> fetchRealtimeBeverageList() {
+  Either<LoadFailure, Stream<List<Beverage>>> fetchBeverageListStream() {
     try {
-      final snapshotStream = _beverageClient.fetchRealtimeBeverageList();
-      final beverageList = snapshotStream.map((snapshot) => snapshot.docs
-          .map(
-            (doc) => Beverage.fromJson(
-              {'id': doc.id, ...doc.data() as Map<String, dynamic>},
-            ),
-          )
-          .toList());
+      final snapshotStream = _beverageClient.fetchBeverageListStream();
+      final beverageList = snapshotStream.map((snapshot) =>
+          snapshot.docs.map((doc) => Beverage.fromDoc(doc)).toList());
       return right(beverageList);
     } catch (error) {
       return left(const LoadFailure.invalidRequest());
@@ -32,13 +27,8 @@ class BeverageRepository {
   Future<Either<LoadFailure, List<Beverage>>> fetchBeverageList() async {
     try {
       final snapshot = await _beverageClient.fetchBeverageList();
-      final beverageList = snapshot.docs
-          .map(
-            (item) => Beverage.fromJson(
-              {'id': item.id, ...item.data() as Map<String, dynamic>},
-            ),
-          )
-          .toList();
+      final beverageList =
+          snapshot.docs.map((doc) => Beverage.fromDoc(doc)).toList();
       return right(beverageList);
     } catch (error) {
       return left(const LoadFailure.invalidRequest());

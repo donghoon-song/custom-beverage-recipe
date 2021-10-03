@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'converter.dart';
 
 part 'beverage.freezed.dart';
 part 'beverage.g.dart';
@@ -8,8 +11,16 @@ class Beverage with _$Beverage {
   factory Beverage({
     required String id,
     required String name,
+    @TimestampConverter()
+    @JsonKey(name: 'created_at')
+        required DateTime createdAt,
   }) = _Beverage;
 
   factory Beverage.fromJson(Map<String, dynamic> json) =>
       _$BeverageFromJson(json);
+
+  factory Beverage.fromDoc(DocumentSnapshot documentSnapshot) {
+    return _$BeverageFromJson((documentSnapshot.data() as Map<String, dynamic>)
+      ..['id'] = documentSnapshot.id);
+  }
 }
