@@ -15,9 +15,12 @@ class BeverageList extends StatelessWidget {
     return ListView(
       children: [
         for (Beverage item in list)
-          ListTile(
-            title: Text(item.name),
-            subtitle: Text(item.createdAt.toString()),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.circle),
+              title: Text(item.name),
+              subtitle: Text(item.createdAt.toString()),
+            ),
           ),
       ],
     );
