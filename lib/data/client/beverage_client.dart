@@ -9,13 +9,13 @@ class BeverageClient {
   final CollectionReference _beverages;
 
   BeverageClient(ProviderRefBase ref)
-      : _beverages = ref.read(firestoreProvider).collection('beverages');
+      : _beverages = ref.read(firestoreProvider).collection('beverage');
 
   Stream<QuerySnapshot> fetchBeverageListStream() {
-    return _beverages.orderBy('created_at', descending: true).snapshots();
+    return _beverages.orderBy('createdAt', descending: true).snapshots();
   }
 
   Future<QuerySnapshot> fetchBeverageList() {
-    return _beverages.orderBy('created_at', descending: true).get();
+    return _beverages.orderBy('createdAt', descending: true).get();
   }
 }

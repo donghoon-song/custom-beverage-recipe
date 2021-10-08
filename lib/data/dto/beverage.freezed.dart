@@ -23,14 +23,24 @@ class _$BeverageTearOff {
 
   _Beverage call(
       {required String id,
+      required String baseId,
       required String name,
-      @TimestampConverter()
-      @JsonKey(name: 'created_at')
-          required DateTime createdAt}) {
+      required String description,
+      required String imageUrl,
+      required List<String> ingredientIds,
+      @TimestampConverter() required DateTime createdAt,
+      @TimestampConverter() required DateTime updatedAt,
+      required String userId}) {
     return _Beverage(
       id: id,
+      baseId: baseId,
       name: name,
+      description: description,
+      imageUrl: imageUrl,
+      ingredientIds: ingredientIds,
       createdAt: createdAt,
+      updatedAt: updatedAt,
+      userId: userId,
     );
   }
 
@@ -45,10 +55,16 @@ const $Beverage = _$BeverageTearOff();
 /// @nodoc
 mixin _$Beverage {
   String get id => throw _privateConstructorUsedError;
+  String get baseId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
+  List<String> get ingredientIds => throw _privateConstructorUsedError;
   @TimestampConverter()
-  @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @TimestampConverter()
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  String get userId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,8 +78,14 @@ abstract class $BeverageCopyWith<$Res> {
       _$BeverageCopyWithImpl<$Res>;
   $Res call(
       {String id,
+      String baseId,
       String name,
-      @TimestampConverter() @JsonKey(name: 'created_at') DateTime createdAt});
+      String description,
+      String imageUrl,
+      List<String> ingredientIds,
+      @TimestampConverter() DateTime createdAt,
+      @TimestampConverter() DateTime updatedAt,
+      String userId});
 }
 
 /// @nodoc
@@ -77,22 +99,52 @@ class _$BeverageCopyWithImpl<$Res> implements $BeverageCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? baseId = freezed,
     Object? name = freezed,
+    Object? description = freezed,
+    Object? imageUrl = freezed,
+    Object? ingredientIds = freezed,
     Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? userId = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      baseId: baseId == freezed
+          ? _value.baseId
+          : baseId // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      ingredientIds: ingredientIds == freezed
+          ? _value.ingredientIds
+          : ingredientIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -104,8 +156,14 @@ abstract class _$BeverageCopyWith<$Res> implements $BeverageCopyWith<$Res> {
   @override
   $Res call(
       {String id,
+      String baseId,
       String name,
-      @TimestampConverter() @JsonKey(name: 'created_at') DateTime createdAt});
+      String description,
+      String imageUrl,
+      List<String> ingredientIds,
+      @TimestampConverter() DateTime createdAt,
+      @TimestampConverter() DateTime updatedAt,
+      String userId});
 }
 
 /// @nodoc
@@ -120,22 +178,52 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? baseId = freezed,
     Object? name = freezed,
+    Object? description = freezed,
+    Object? imageUrl = freezed,
+    Object? ingredientIds = freezed,
     Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? userId = freezed,
   }) {
     return _then(_Beverage(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      baseId: baseId == freezed
+          ? _value.baseId
+          : baseId // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      ingredientIds: ingredientIds == freezed
+          ? _value.ingredientIds
+          : ingredientIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -145,10 +233,14 @@ class __$BeverageCopyWithImpl<$Res> extends _$BeverageCopyWithImpl<$Res>
 class _$_Beverage implements _Beverage {
   _$_Beverage(
       {required this.id,
+      required this.baseId,
       required this.name,
-      @TimestampConverter()
-      @JsonKey(name: 'created_at')
-          required this.createdAt});
+      required this.description,
+      required this.imageUrl,
+      required this.ingredientIds,
+      @TimestampConverter() required this.createdAt,
+      @TimestampConverter() required this.updatedAt,
+      required this.userId});
 
   factory _$_Beverage.fromJson(Map<String, dynamic> json) =>
       _$$_BeverageFromJson(json);
@@ -156,15 +248,27 @@ class _$_Beverage implements _Beverage {
   @override
   final String id;
   @override
+  final String baseId;
+  @override
   final String name;
   @override
+  final String description;
+  @override
+  final String imageUrl;
+  @override
+  final List<String> ingredientIds;
+  @override
   @TimestampConverter()
-  @JsonKey(name: 'created_at')
   final DateTime createdAt;
+  @override
+  @TimestampConverter()
+  final DateTime updatedAt;
+  @override
+  final String userId;
 
   @override
   String toString() {
-    return 'Beverage(id: $id, name: $name, createdAt: $createdAt)';
+    return 'Beverage(id: $id, baseId: $baseId, name: $name, description: $description, imageUrl: $imageUrl, ingredientIds: $ingredientIds, createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId)';
   }
 
   @override
@@ -173,19 +277,41 @@ class _$_Beverage implements _Beverage {
         (other is _Beverage &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.baseId, baseId) ||
+                const DeepCollectionEquality().equals(other.baseId, baseId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality()
+                    .equals(other.description, description)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageUrl, imageUrl)) &&
+            (identical(other.ingredientIds, ingredientIds) ||
+                const DeepCollectionEquality()
+                    .equals(other.ingredientIds, ingredientIds)) &&
             (identical(other.createdAt, createdAt) ||
                 const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)));
+                    .equals(other.createdAt, createdAt)) &&
+            (identical(other.updatedAt, updatedAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.updatedAt, updatedAt)) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(baseId) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(createdAt);
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
+      const DeepCollectionEquality().hash(ingredientIds) ^
+      const DeepCollectionEquality().hash(createdAt) ^
+      const DeepCollectionEquality().hash(updatedAt) ^
+      const DeepCollectionEquality().hash(userId);
 
   @JsonKey(ignore: true)
   @override
@@ -201,21 +327,37 @@ class _$_Beverage implements _Beverage {
 abstract class _Beverage implements Beverage {
   factory _Beverage(
       {required String id,
+      required String baseId,
       required String name,
-      @TimestampConverter()
-      @JsonKey(name: 'created_at')
-          required DateTime createdAt}) = _$_Beverage;
+      required String description,
+      required String imageUrl,
+      required List<String> ingredientIds,
+      @TimestampConverter() required DateTime createdAt,
+      @TimestampConverter() required DateTime updatedAt,
+      required String userId}) = _$_Beverage;
 
   factory _Beverage.fromJson(Map<String, dynamic> json) = _$_Beverage.fromJson;
 
   @override
   String get id => throw _privateConstructorUsedError;
   @override
+  String get baseId => throw _privateConstructorUsedError;
+  @override
   String get name => throw _privateConstructorUsedError;
   @override
+  String get description => throw _privateConstructorUsedError;
+  @override
+  String get imageUrl => throw _privateConstructorUsedError;
+  @override
+  List<String> get ingredientIds => throw _privateConstructorUsedError;
+  @override
   @TimestampConverter()
-  @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @override
+  @TimestampConverter()
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @override
+  String get userId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BeverageCopyWith<_Beverage> get copyWith =>

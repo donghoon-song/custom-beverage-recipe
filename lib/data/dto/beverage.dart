@@ -10,10 +10,14 @@ part 'beverage.g.dart';
 class Beverage with _$Beverage {
   factory Beverage({
     required String id,
+    required String baseId,
     required String name,
-    @TimestampConverter()
-    @JsonKey(name: 'created_at')
-        required DateTime createdAt,
+    required String description,
+    required String imageUrl,
+    required List<String> ingredientIds,
+    @TimestampConverter() required DateTime createdAt,
+    @TimestampConverter() required DateTime updatedAt,
+    required String userId,
   }) = _Beverage;
 
   factory Beverage.fromJson(Map<String, dynamic> json) =>
