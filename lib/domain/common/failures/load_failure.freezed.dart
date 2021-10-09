@@ -118,7 +118,8 @@ class _$_InvalidRequest implements _InvalidRequest {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InvalidRequest);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InvalidRequest);
   }
 
   @override
@@ -221,7 +222,8 @@ class _$_ServerError implements _ServerError {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ServerError);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ServerError);
   }
 
   @override
