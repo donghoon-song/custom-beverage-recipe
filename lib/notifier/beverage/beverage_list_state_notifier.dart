@@ -13,10 +13,10 @@ class BeverageListStateNotifier extends StateNotifier<BeverageListState> {
   BeverageListStateNotifier(ProviderRefBase ref)
       : _beverageRepository = ref.read(beverageRepositoryProvider),
         super(const BeverageListState.initial()) {
-    listenToBeverageList();
+    _listenToBeverageList();
   }
 
-  listenToBeverageList() {
+  _listenToBeverageList() {
     state = const BeverageListState.loading();
     final leftOrRight = _beverageRepository.fetchBeverageListStream();
     leftOrRight.fold(
