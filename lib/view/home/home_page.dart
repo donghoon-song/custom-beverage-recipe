@@ -12,6 +12,7 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final beverageList = ref.watch(beverageListProvider);
     final auth = ref.watch(authProvider);
+    final authAction = ref.watch(authProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: auth.when(
@@ -24,6 +25,16 @@ class HomePage extends ConsumerWidget {
           loaded: (list) => BeverageList(list: list),
           error: (message) => Text(message),
           orElse: () => const CircularProgressIndicator(),
+        ),
+      ),
+      floatingActionButton: auth.when(
+        unknown: () => FloatingActionButton(
+          child: const Icon(Icons.login_rounded),
+          onPressed: () => authAction.signIn(),
+        ),
+        authenticated: (user) => FloatingActionButton(
+          child: const Icon(Icons.logout_rounded),
+          onPressed: () => authAction.signOut(),
         ),
       ),
     );
