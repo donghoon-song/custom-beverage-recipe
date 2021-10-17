@@ -1,6 +1,6 @@
+import 'package:cubere/common/failure/load_failure.dart';
 import 'package:cubere/data/client/beverage_client.dart';
 import 'package:cubere/data/dto/beverage.dart';
-import 'package:cubere/domain/common/failures/load_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
