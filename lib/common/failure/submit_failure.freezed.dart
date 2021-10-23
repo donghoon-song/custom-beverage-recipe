@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'load_failure.dart';
+part of 'submit_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$LoadFailureTearOff {
-  const _$LoadFailureTearOff();
+class _$SubmitFailureTearOff {
+  const _$SubmitFailureTearOff();
 
   _InvalidRequest invalidRequest() {
     return const _InvalidRequest();
@@ -27,10 +27,10 @@ class _$LoadFailureTearOff {
 }
 
 /// @nodoc
-const $LoadFailure = _$LoadFailureTearOff();
+const $SubmitFailure = _$SubmitFailureTearOff();
 
 /// @nodoc
-mixin _$LoadFailure {
+mixin _$SubmitFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() invalidRequest,
@@ -72,19 +72,20 @@ mixin _$LoadFailure {
 }
 
 /// @nodoc
-abstract class $LoadFailureCopyWith<$Res> {
-  factory $LoadFailureCopyWith(
-          LoadFailure value, $Res Function(LoadFailure) then) =
-      _$LoadFailureCopyWithImpl<$Res>;
+abstract class $SubmitFailureCopyWith<$Res> {
+  factory $SubmitFailureCopyWith(
+          SubmitFailure value, $Res Function(SubmitFailure) then) =
+      _$SubmitFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$LoadFailureCopyWithImpl<$Res> implements $LoadFailureCopyWith<$Res> {
-  _$LoadFailureCopyWithImpl(this._value, this._then);
+class _$SubmitFailureCopyWithImpl<$Res>
+    implements $SubmitFailureCopyWith<$Res> {
+  _$SubmitFailureCopyWithImpl(this._value, this._then);
 
-  final LoadFailure _value;
+  final SubmitFailure _value;
   // ignore: unused_field
-  final $Res Function(LoadFailure) _then;
+  final $Res Function(SubmitFailure) _then;
 }
 
 /// @nodoc
@@ -96,7 +97,7 @@ abstract class _$InvalidRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$InvalidRequestCopyWithImpl<$Res>
-    extends _$LoadFailureCopyWithImpl<$Res>
+    extends _$SubmitFailureCopyWithImpl<$Res>
     implements _$InvalidRequestCopyWith<$Res> {
   __$InvalidRequestCopyWithImpl(
       _InvalidRequest _value, $Res Function(_InvalidRequest) _then)
@@ -113,12 +114,13 @@ class _$_InvalidRequest implements _InvalidRequest {
 
   @override
   String toString() {
-    return 'LoadFailure.invalidRequest()';
+    return 'SubmitFailure.invalidRequest()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InvalidRequest);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InvalidRequest);
   }
 
   @override
@@ -187,7 +189,7 @@ class _$_InvalidRequest implements _InvalidRequest {
   }
 }
 
-abstract class _InvalidRequest implements LoadFailure {
+abstract class _InvalidRequest implements SubmitFailure {
   const factory _InvalidRequest() = _$_InvalidRequest;
 }
 
@@ -199,7 +201,7 @@ abstract class _$ServerErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ServerErrorCopyWithImpl<$Res> extends _$LoadFailureCopyWithImpl<$Res>
+class __$ServerErrorCopyWithImpl<$Res> extends _$SubmitFailureCopyWithImpl<$Res>
     implements _$ServerErrorCopyWith<$Res> {
   __$ServerErrorCopyWithImpl(
       _ServerError _value, $Res Function(_ServerError) _then)
@@ -216,12 +218,13 @@ class _$_ServerError implements _ServerError {
 
   @override
   String toString() {
-    return 'LoadFailure.serverError()';
+    return 'SubmitFailure.serverError()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ServerError);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ServerError);
   }
 
   @override
@@ -290,6 +293,6 @@ class _$_ServerError implements _ServerError {
   }
 }
 
-abstract class _ServerError implements LoadFailure {
+abstract class _ServerError implements SubmitFailure {
   const factory _ServerError() = _$_ServerError;
 }

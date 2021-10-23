@@ -44,7 +44,7 @@ class _$BeverageTearOff {
     );
   }
 
-  Beverage fromJson(Map<String, Object> json) {
+  Beverage fromJson(Map<String, Object?> json) {
     return Beverage.fromJson(json);
   }
 }
@@ -274,44 +274,36 @@ class _$_Beverage implements _Beverage {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Beverage &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.baseId, baseId) ||
-                const DeepCollectionEquality().equals(other.baseId, baseId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Beverage &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.baseId, baseId) || other.baseId == baseId) &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
+                other.description == description) &&
             (identical(other.imageUrl, imageUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrl, imageUrl)) &&
-            (identical(other.ingredientIds, ingredientIds) ||
-                const DeepCollectionEquality()
-                    .equals(other.ingredientIds, ingredientIds)) &&
+                other.imageUrl == imageUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.ingredientIds, ingredientIds) &&
             (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
+                other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.userId, userId) ||
-                const DeepCollectionEquality().equals(other.userId, userId)));
+                other.updatedAt == updatedAt) &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(baseId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(imageUrl) ^
-      const DeepCollectionEquality().hash(ingredientIds) ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(userId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      baseId,
+      name,
+      description,
+      imageUrl,
+      const DeepCollectionEquality().hash(ingredientIds),
+      createdAt,
+      updatedAt,
+      userId);
 
   @JsonKey(ignore: true)
   @override
@@ -339,25 +331,25 @@ abstract class _Beverage implements Beverage {
   factory _Beverage.fromJson(Map<String, dynamic> json) = _$_Beverage.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get baseId => throw _privateConstructorUsedError;
+  String get baseId;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  String get imageUrl => throw _privateConstructorUsedError;
+  String get imageUrl;
   @override
-  List<String> get ingredientIds => throw _privateConstructorUsedError;
-  @override
-  @TimestampConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  List<String> get ingredientIds;
   @override
   @TimestampConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime get createdAt;
   @override
-  String get userId => throw _privateConstructorUsedError;
+  @TimestampConverter()
+  DateTime get updatedAt;
+  @override
+  String get userId;
   @override
   @JsonKey(ignore: true)
   _$BeverageCopyWith<_Beverage> get copyWith =>
