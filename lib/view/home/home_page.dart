@@ -1,5 +1,6 @@
 import 'package:cubere/notifier/auth/auth_state_notifier.dart';
 import 'package:cubere/notifier/beverage/beverage_list_state_notifier.dart';
+import 'package:cubere/view/home/home_floating_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,7 +13,6 @@ class HomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final beverageList = ref.watch(beverageListProvider);
     final auth = ref.watch(authProvider);
-    final authAction = ref.watch(authProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: auth.when(
@@ -27,16 +27,7 @@ class HomePage extends ConsumerWidget {
           orElse: () => const CircularProgressIndicator(),
         ),
       ),
-      floatingActionButton: auth.when(
-        unknown: () => FloatingActionButton(
-          child: const Icon(Icons.login_rounded),
-          onPressed: () => authAction.signIn(),
-        ),
-        authenticated: (user) => FloatingActionButton(
-          child: const Icon(Icons.logout_rounded),
-          onPressed: () => authAction.signOut(),
-        ),
-      ),
+      floatingActionButton: const HomeFloatingButton(),
     );
   }
 }
