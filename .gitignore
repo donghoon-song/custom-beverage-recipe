@@ -68,6 +68,7 @@ captures/
 # Google Services (e.g. APIs or Firebase)
 google-services.json
 GoogleService-Info.plist
+env.xcconfig
 
 # Freeline
 freeline.py
@@ -547,5 +548,9 @@ Thumbs.db
 ### AndroidStudio Patch ###
 
 !/gradle/wrapper/gradle-wrapper.jar
+
+
+## secret
+secret.tar
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij,androidstudio,visualstudiocode,swift,kotlin,dart,flutter,android,firebase
