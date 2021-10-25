@@ -25,12 +25,9 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     });
   }
 
-  signIn() {
-    _authService.signInWithGoogle();
-    // _authService.signInWithApple();
-  }
+  Future signInWithGoogle() async => _authService.signInWithGoogle();
 
-  signOut() {
-    _authService.signOut();
-  }
+  Future signInWithApple() async => _authService.signInWithApple();
+
+  void signOut() => _authService.signOut();
 }
